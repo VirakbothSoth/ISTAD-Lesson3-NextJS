@@ -1,7 +1,8 @@
-import Link from "next/link";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import NavigationMenu from "@/components/navbar/navigation-menu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,10 +29,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {/* header */}
         <header>
-          {/* <nav className="text-2xl">
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-          </nav> */}
+          <NavigationMenu />
           <h1 className="text-3xl mb-5 p-2 bg-white/20">this is header</h1>
         </header>
           {children}
