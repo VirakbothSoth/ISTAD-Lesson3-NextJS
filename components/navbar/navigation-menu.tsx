@@ -44,8 +44,7 @@ export default function NavigationMenu() {
                         >
                             {menu.name}
                         </Link>
-                    )
-                }};
+                    )})};
         </nav>
     )
 }
