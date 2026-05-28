@@ -1,19 +1,16 @@
-import { useState } from "react"
-import { useEffect } from "react"
-
-type productType = {
-    id: number;
-    title: string;
-    description: string;
-};
+"use client"
+import { useState, useEffect } from "react"
+import { productType } from "@/lib/productType"
+import ProductCardComponent from "@/components/product/product-card";
 
 type productData = productType[];
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ProductPage() {
-    const [products, setProducts] = useState<productType>();
+    const [products, setProducts] = useState<productData>();
     useEffect(() => {
         async function getData() {
-            const res = await fetch("api/v1/products");
+            const res = await fetch(`${BASE_URL}/api/v1/products`);
             const data = await res.json();
             setProducts(data);
         }
@@ -23,13 +20,14 @@ export default function ProductPage() {
     console.log("data: ", products);
 
     return (
-        <div>
+        <div className="grid grid-cols-5 gap-5">
             {products?.map((product) => (
-                    <div>
-                        <h2>{product.id}</h2>
-                        <h2>{product.title}</h2>
-                        <p>{product.description}</p>
-                    </div>
+                <ProductCardComponent
+                    key={product.id}
+                    id={product.id}
+                    title={product.title}
+                    description={product.description}
+                />
             ))}
         </div>
     )
