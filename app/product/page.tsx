@@ -27,6 +27,7 @@ export default function ProductPage() {
                     id={product.id}
                     title={product.title}
                     description={product.description}
+                    slug={product.slug}
                 />
             ))}
         </div>

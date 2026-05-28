@@ -1,15 +1,19 @@
-import {productType} from "@/lib/productType";
+import Link from "next/link";
+import { productType } from "@/lib/productType";
 
 export default function ProductCardComponent({
     id,
     title,
-    description
+    description,
+    slug,
 }: productType) {
     return (
-        <div className="bg-blue-100 m-5 p-5">
-            <h2 className="text-lg">{id}</h2>
-            <h2 className="text-2xl">{title}</h2>
-            <p className="text-lg line-clamp-3">{description}</p>
-        </div>
-    )
+        <Link href={`/product/${slug}`}>
+            <div className="bg-neutral-700 m-5 p-5 cursor-pointer rounded-lg transition hover:scale-105">
+                <h2 className="text-lg">{id}</h2>
+                <h2 className="text-2xl font-bold">{title}</h2>
+                <p className="text-lg line-clamp-3">{description}</p>
+            </div>
+        </Link>
+    );
 }
