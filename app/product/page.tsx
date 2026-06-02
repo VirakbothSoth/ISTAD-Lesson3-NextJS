@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import { productType } from "@/lib/productType"
+import { redirect } from "next/navigation";
 import ProductCardComponent from "@/components/product/product-card";
 
 type productData = productType[];
@@ -11,6 +12,9 @@ export default function ProductPage() {
     useEffect(() => {
         async function getData() {
             const res = await fetch(`${BASE_URL}/api/v1/products`);
+            if (!res.ok) {
+                redirect("/");
+            }
             const data = await res.json();
             setProducts(data);
         }
@@ -20,7 +24,7 @@ export default function ProductPage() {
     console.log("data: ", products);
 
     return (
-        <div className="grid grid-cols-5 gap-5">
+        <div className="grid grid-cols-5 gap-4 m-4">
             {products?.map((product) => (
                 <ProductCardComponent
                     key={product.id}

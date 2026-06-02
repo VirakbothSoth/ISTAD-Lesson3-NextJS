@@ -26,14 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+      <body className="max-h-screen flex flex-col">
         {/* header */}
         <header>
           <NavigationMenu />
-          <h1 className="text-3xl mb-5 p-2 bg-white/20">this is header</h1>
         </header>
           {children}
-        <footer className="text-3xl mb-5 p-2 bg-white/20">this is footer</footer>
+        <footer className="text-3xl mb-5 p-2 bg-gray-950 border-gray-700 border-t">this is footer</footer>
         {/* footer */}
       </body>
     </html>

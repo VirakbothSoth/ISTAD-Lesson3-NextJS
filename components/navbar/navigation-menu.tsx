@@ -25,11 +25,15 @@ const menuObject: NavigationMenuType[] = [
     path: "/product",
     name: "Product",
   },
+  {
+    path: "/form",
+    name: "Form",
+  },
 ];
 export default function NavigationMenu() {
   const pathName = usePathname();
   return (
-    <nav className="px-5">
+    <nav className="p-2 bg-gray-950 border-b border-gray-700">
       {menuObject.map((menu) => {
         const isActive =
           menu.path === "/"
@@ -40,8 +44,8 @@ export default function NavigationMenu() {
             key={menu.path}
             className={
               isActive
-                ? "text-red-600 font-bold px-5 text-3xl"
-                : "text-neutral-300 hover:text-red-400 px-5 text-3xl"
+                ? "text-blue-600 font-bold px-5 text-3xl"
+                : "text-neutral-300 hover:text-blue-400 hover:underline px-5 text-3xl transition duration-300"
             }
             href={menu.path}
           >

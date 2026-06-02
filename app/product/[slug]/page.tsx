@@ -17,7 +17,7 @@ export default async function DetailProduct({
     const product = await singleProduct.json();
 
     return (
-        <div className="bg-neutral-700 m-5 p-5 cursor-pointer rounded-lg transition hover:scale-105">
+        <div className="bg-gray-950 border border-gray-700 m-3 p-3 cursor-pointer rounded-lg transition">
             <img
                 src={product.images[0]}
                 alt={product.title}
