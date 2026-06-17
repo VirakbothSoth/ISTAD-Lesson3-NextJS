@@ -1,18 +1,8 @@
-
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import "./tailwind.css";
 import NavigationMenu from "@/components/navbar/navigation-menu";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -25,13 +15,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-  analytics,
-  team,
+  children
 }: Readonly<{
   children: React.ReactNode;
-  analytics: React.ReactNode;
-  team: React.ReactNode;
 }>) {
   return (
     <html lang="en" className={`${jetbrainsMono.variable} h-full antialiased`}>
@@ -41,7 +27,7 @@ export default function RootLayout({
           <NavigationMenu />
         </header>
           {children}
-        <footer className="text-3xl mb-5 p-2 bg-gray-950 border-gray-700 border-t">this is footer</footer>
+        <footer className="text-3xl p-2 bg-gray-950 border-gray-700 border-t">this is footer</footer>
         {/* footer */}
       </body>
     </html>

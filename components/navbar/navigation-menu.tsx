@@ -14,26 +14,18 @@ const menuObject: NavigationMenuType[] = [
     name: "Home",
   },
   {
-    path: "/about",
-    name: "About",
-  },
-  {
-    path: "/about/team",
-    name: "Team",
-  },
-  {
     path: "/product",
     name: "Product",
   },
-  {
-    path: "/form",
-    name: "Form",
+    {
+    path: "/user",
+    name: "User",
   },
 ];
 export default function NavigationMenu() {
   const pathName = usePathname();
   return (
-    <nav className="p-2 bg-gray-950 border-b border-gray-700">
+    <nav className="p-1 bg-gray-950 border-b border-gray-700">
       {menuObject.map((menu) => {
         const isActive =
           menu.path === "/"
@@ -44,8 +36,8 @@ export default function NavigationMenu() {
             key={menu.path}
             className={
               isActive
-                ? "text-blue-600 font-bold px-5 text-3xl"
-                : "text-neutral-300 hover:text-blue-400 hover:underline px-5 text-3xl transition duration-300"
+                ? "text-blue-600 font-bold px-3 text-lg"
+                : "text-neutral-300 hover:text-blue-400 hover:underline px-3 text-lg transition duration-300"
             }
             href={menu.path}
           >

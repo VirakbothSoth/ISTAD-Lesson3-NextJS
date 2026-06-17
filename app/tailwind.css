@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer base {
+    .cards {
+        @apply grid grid-cols-5 gap-4 m-4 justify-items-stretch;
+    }
+
+    .card {
+        @apply bg-gray-950 border border-gray-700 p-5 cursor-pointer rounded-lg transition hover:scale-105 h-full;
+    }
+
+    .card p {
+        @apply text-xs text-gray-800 line-clamp-3;
+    }
+
+    .card h2 {
+        @apply text-lg font-bold line-clamp-1;
+    }
+}

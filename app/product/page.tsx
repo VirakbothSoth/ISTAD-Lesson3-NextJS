@@ -24,13 +24,14 @@ export default function ProductPage() {
     console.log("data: ", products);
 
     return (
-        <div className="grid grid-cols-5 gap-4 m-4 justify-items-stretch">
+        <div className="cards">
             {products?.map((product) => (
                 <ProductCardComponent
                     key={product.id}
                     id={product.id}
                     title={product.title}
                     description={product.description}
+                    images={product.images}
                     slug={product.slug}
                 />
             ))}

@@ -1,23 +1,23 @@
 import Link from "next/link";
 import { productType } from "@/lib/productType";
 import FadeInUp from "../FadeInUp";
+import Image from "next/image";
 
 export default function ProductCardComponent({
     id,
     title,
     description,
+    images,
     slug,
 }: productType) {
     return (
         <Link href={`/product/${slug}`}>
             <FadeInUp>
-                <div
-                className="bg-gray-950 border border-gray-700
-                p-5 cursor-pointer rounded-lg transition
-                hover:scale-105 h-full">
+                <div className="card">
+                    <Image width={300} height={200} alt="Test" src={images[0]} />
                     <h2 className="text-md">{id}</h2>
-                    <h2 className="text-lg font-bold line-clamp-1">{title}</h2>
-                    <p className="text-xs text-gray-800 line-clamp-3">{description}</p>
+                    <h2>{title}</h2>
+                    <p>{description}</p>
                 </div>
             </FadeInUp>
         </Link>
